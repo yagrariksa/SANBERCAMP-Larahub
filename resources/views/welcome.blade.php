@@ -90,6 +90,8 @@
                 
                 <div class="links person-project">
                     <a href="/laraexp">LaraExp</a>
+                    <a href="/mahasiswa">Mahasiswa-DB</a>
+                    <a href="/larahub">Larahub</a>
                 </div>
                 
                 <hr>

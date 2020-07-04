@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Larahub;
 
-use App\question;
+use App\Http\Controllers\Controller;
+use App\answer;
 use Illuminate\Http\Request;
 
-class QuestionController extends Controller
+class AnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,6 @@ class QuestionController extends Controller
     public function index()
     {
         //
-        return view('larahub.quest');
     }
 
     /**
@@ -26,7 +26,6 @@ class QuestionController extends Controller
     public function create()
     {
         //
-        return view('larahub.addquest');
     }
 
     /**
@@ -43,22 +42,21 @@ class QuestionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\question  $question
+     * @param  \App\answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(answer $answer)
     {
         //
-        return view('larahub.detailquest');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\question  $question
+     * @param  \App\answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function edit(question $question)
+    public function edit(answer $answer)
     {
         //
     }
@@ -67,10 +65,10 @@ class QuestionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\question  $question
+     * @param  \App\answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, question $question)
+    public function update(Request $request, answer $answer)
     {
         //
     }
@@ -78,10 +76,10 @@ class QuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\question  $question
+     * @param  \App\answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(question $question)
+    public function destroy(answer $answer)
     {
         //
     }

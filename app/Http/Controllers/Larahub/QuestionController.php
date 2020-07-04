@@ -1,31 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Larahub;
 
-use App\larahubuser;
+use App\Http\Controllers\Controller;
+use App\question;
 use Illuminate\Http\Request;
 
-class LarahubuserController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function index()
     {
         //
-        return view('larahub.homepage');
-    }
-
-    public function login()
-    {
-        return view('larahub.login');
-    }
-
-    public function matching(Request $request)
-    {
-        // 
+        return view('larahub.quest');
     }
 
     /**
@@ -36,7 +27,7 @@ class LarahubuserController extends Controller
     public function create()
     {
         //
-        return view('larahub.signup');
+        return view('larahub.addquest');
     }
 
     /**
@@ -53,21 +44,22 @@ class LarahubuserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\larahubuser  $larahubuser
+     * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(larahubuser $larahubuser)
+    public function show()
     {
         //
+        return view('larahub.detailquest');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\larahubuser  $larahubuser
+     * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(larahubuser $larahubuser)
+    public function edit(question $question)
     {
         //
     }
@@ -76,10 +68,10 @@ class LarahubuserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\larahubuser  $larahubuser
+     * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, larahubuser $larahubuser)
+    public function update(Request $request, question $question)
     {
         //
     }
@@ -87,10 +79,10 @@ class LarahubuserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\larahubuser  $larahubuser
+     * @param  \App\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(larahubuser $larahubuser)
+    public function destroy(question $question)
     {
         //
     }

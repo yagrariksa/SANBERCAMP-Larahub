@@ -28,14 +28,16 @@ Route::patch('/mahasiswa/{student}', 'MahasiswaController@update');
 Route::post('/mahasiswa', 'MahasiswaController@store');
 Route::delete('/mahasiswa/{student}', 'MahasiswaController@destroy');
 
-Route::get('/larahub', 'LarahubuserController@home'); // homepage 
-Route::get('/larahub/login', 'LarahubuserController@login'); // login-page
-Route::post('/larahub/login', 'LarahubuserControll@matching'); // login-matching-point
-Route::get('/larahub/create', 'LarahubuserController@create'); // sign-up-page
-Route::post('/larahub/create', 'LarahubuserController@store'); // sign-up-store
-Route::get('/larahub/quest', 'QuestionController@index'); // quest-list-page
-Route::get('/larahub/quest/add', 'QuestionController@create'); // add-quest-page
-Route::get('/larahub/{question}', 'QuestionController@show'); // detail-quest-page
-Route::post('/larahub/quest/store', 'QuestionController@store'); // add-quest-store
-Route::post('/larahub/comment/store', 'QuestionController@store'); // add-comment-store
-Route::post('/larahub/answer/store', 'QuestionController@store'); // add-answer-store
+Route::get('/larahub', 'Larahub\LarahubuserController@home'); // homepage 
+Route::get('/larahub/login', 'Larahub\LarahubuserController@login')->middleware('guest')->name('login'); // login-page
+Route::post('/larahub/login', 'Larahub\LarahubuserController@matching')->middleware('guest'); // login-matching-point
+Route::get('/larahub/logout', 'Larahub\LarahubuserController@logout'); // login-page
+Route::get('/larahub/register', 'Larahub\LarahubuserController@create')->middleware('guest'); // sign-up-page
+Route::post('/larahub/register', 'Larahub\LarahubuserController@store')->middleware('guest'); // sign-up-store
+Route::get('/larahub/quest', 'Larahub\QuestionController@index'); // quest-list-page
+Route::get('/larahub/quest/add', 'Larahub\QuestionController@create'); // add-quest-page
+Route::get('/larahub/quest/add', 'Larahub\QuestionController@create'); // add-quest-page
+Route::get('/larahub/{question}', 'Larahub\QuestionController@show'); // detail-quest-page
+Route::post('/larahub/quest/store', 'Larahub\QuestionController@store')->middleware('auth'); // add-quest-store
+Route::post('/larahub/comment/store', 'Larahub\CommentController@store')->middleware('auth'); // add-comment-store
+Route::post('/larahub/answer/store', 'Larahub\AnswerController@store')->middleware('auth'); // add-answer-store

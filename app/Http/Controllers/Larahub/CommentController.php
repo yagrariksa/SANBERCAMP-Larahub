@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Larahub;
 
-use App\answer;
+use App\Http\Controllers\Controller;
+use App\comment;
 use Illuminate\Http\Request;
 
-class AnswerController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class AnswerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\answer  $answer
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(answer $answer)
+    public function show(comment $comment)
     {
         //
     }
@@ -52,10 +53,10 @@ class AnswerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\answer  $answer
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(answer $answer)
+    public function edit(comment $comment)
     {
         //
     }
@@ -64,10 +65,10 @@ class AnswerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\answer  $answer
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, answer $answer)
+    public function update(Request $request, comment $comment)
     {
         //
     }
@@ -75,10 +76,10 @@ class AnswerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\answer  $answer
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(answer $answer)
+    public function destroy(comment $comment)
     {
         //
     }

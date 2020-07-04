@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css')}}">
+    @stack('specialstyle')
 
     <title>@yield('title')</title>
 </head>
