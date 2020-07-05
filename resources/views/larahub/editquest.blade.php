@@ -8,15 +8,16 @@
 <div class="row justify-content-center text-center">
     <div class="col-8">
         <h1 class="mt-5">Add some Question here</h1>
-        <form action="/larahub/quest/add" method="post">
+        <form action="/larahub/quest/{{$question->id}}/edit" method="post">
             @csrf
+            @method('patch');
             <input type="hidden" name="user_id" id="user_id" value="{{Auth::id()}}">
             <div class="form-group">
-                <input type="text" name="judul" id="judul" class="form-control my-3" placeholder="Short Question">
                 {{-- <label for="exampleFormControlTextarea1">Example textarea</label> --}}
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Explanation" name="isi"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" autofocus name="isi">{{$question->isi}}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Tanyakan !!!</button>
+            <button type="submit" class="btn btn-primary">Edit Pertanyaan</button>
+            <a href="{{ url()->previous() }}" class="btn btn-danger">Batal</a>
         </form>
     </div>
 </div>

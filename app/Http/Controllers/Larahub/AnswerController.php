@@ -37,6 +37,13 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         //
+        $data = new answer;
+        $data->quest_id = $request->quest_id;
+        $data->user_id = $request->user_id;
+        $data->isi = $request->isi;
+        $data->save();
+
+        return redirect()->back();
     }
 
     /**

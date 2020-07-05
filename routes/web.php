@@ -36,8 +36,10 @@ Route::get('/larahub/register', 'Larahub\LarahubuserController@create')->middlew
 Route::post('/larahub/register', 'Larahub\LarahubuserController@store')->middleware('guest'); // sign-up-store
 Route::get('/larahub/quest', 'Larahub\QuestionController@index'); // quest-list-page
 Route::get('/larahub/quest/add', 'Larahub\QuestionController@create'); // add-quest-page
-Route::get('/larahub/quest/add', 'Larahub\QuestionController@create'); // add-quest-page
-Route::get('/larahub/{question}', 'Larahub\QuestionController@show'); // detail-quest-page
-Route::post('/larahub/quest/store', 'Larahub\QuestionController@store')->middleware('auth'); // add-quest-store
+Route::get('/larahub/quest/{question}', 'Larahub\QuestionController@show'); // detail-quest-page
+Route::get('/larahub/quest/{question}/edit', 'Larahub\QuestionController@edit'); // detail-quest-page
+Route::patch('/larahub/quest/{question}/edit', 'Larahub\QuestionController@update'); // detail-quest-page
+Route::delete('/larahub/quest/{question}/destroy', 'Larahub\QuestionController@destroy')->middleware('auth')->name('delete'); // detail-quest-page
+Route::post('/larahub/quest/add', 'Larahub\QuestionController@store')->middleware('auth'); // add-quest-store
 Route::post('/larahub/comment/store', 'Larahub\CommentController@store')->middleware('auth'); // add-comment-store
 Route::post('/larahub/answer/store', 'Larahub\AnswerController@store')->middleware('auth'); // add-answer-store

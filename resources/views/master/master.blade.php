@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css')}}">
     @stack('specialstyle')
 
+    {{-- icon --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/YR_Logo_2012.png')}}">
+
     <title>@yield('title')</title>
 </head>
 <body>

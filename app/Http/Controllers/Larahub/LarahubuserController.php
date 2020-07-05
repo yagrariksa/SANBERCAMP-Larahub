@@ -32,13 +32,13 @@ class LarahubuserController extends Control
             return redirect()->back();
         }
 
-        return Redirect('/larahub');
+        return Redirect('/larahub/quest');
     }
 
     public function logout()
     {
         auth()->logout();
-        return redirect('/larahub');
+        return redirect()->back();
     }
 
     /**
