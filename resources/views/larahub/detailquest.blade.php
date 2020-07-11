@@ -5,13 +5,12 @@
 @endsection
 
 @section('container')
-    <h1>Some Question here</h1>
+    <p class="display-4">{{$question->judul}}</p>
     <div class="row mt-4">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     
-                    <p class="h1" style="font-size: 3em">{{$question->judul}}</p>
                     <p class="mb-4" style="font-size: 2em">{{$question->isi}}</p>
                     <div class="row ">
                         <div class="col-8">
@@ -46,20 +45,22 @@
                 <div class="alert alert-success text-center">Answer Column</div>
                 @foreach ($answer as $a)
                     
-                <a href="#" class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
                         @foreach ($user as $u)
                             @if ($a->user_id == $u->id)
-                            <p class="mb-1">{{$u->name}}</p>
-                            {{-- <small>{{$a->timeLapse}}</small> --}}
-                            <small>3 hours ago</small>
+                            <h5 class="mb-1">{{$a->isi}}</h5>
+                            <small>{{$a->timeLapse}}</small>
                             @endif
                         @endforeach
                         
                     </div>
-                    <h5 class="mb-1">{{$a->isi}}</h5>
-                    <small>Donec id elit non mi porta.</small>
-                </a>
+                    <small>@foreach ($user as $u)
+                        @if ($a->user_id == $u->id)
+                        {{$u->name}}
+                        @endif
+                    @endforeach</small>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -70,20 +71,19 @@
                     <div class="alert alert-info text-center">Comments Column</div>
                 @foreach ($comment as $c)
                     
-                <a href="#" class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
                         @foreach ($user as $u)
                             @if ($c->user_id == $u->id)
-                            <h5 class="mb-1">{{$u->name}}</h5>
+                            <h5 class="mb-1">{{$c->isi}}</h5>
                             {{-- <small>{{$a->timeLapse}}</small> --}}
-                            <small>3 hours ago</small>
+                            <small>{{$c->timeLapse}}</small>
                             @endif
                         @endforeach
                         
                     </div>
-                    <p class="mb-1">{{$c->isi}}</p>
-                    <small>Donec id elit non mi porta.</small>
-                </a>
+                    <small>{{$u->name}}</small>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -150,10 +150,9 @@
                 </div>
                 <div class="modal-body">
                     <p>{{$question->isi}}</p>
-                        <form action="" method="post">
+                        <form action="/larahub/comment/store" method="post">
                             @csrf
                             <input type="hidden" name="user_id" id="user_id" value="{{Auth::id()}}">
-                            <input type="hidden" name="parent_type" id="parent_type" value="question">
                             <input type="hidden" name="quest_id" id="quest_id" value="{{$question->id}}">
                             <div class="form-group">
                                 {{-- <label for="exampleFormControlTextarea1">Example textarea</label> --}}
@@ -162,7 +161,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Answer</button>
+                    <button type="submit" class="btn btn-primary">Add Comment</button>
                         </form>
                     </div>
                 </div>

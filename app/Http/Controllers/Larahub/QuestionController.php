@@ -70,8 +70,14 @@ class QuestionController extends Controller
         //
         $question->timeLapse = $this->timeAgo($question->updated_at);
         $user = user::all();
-        $comment = DB::table('comments')->where('parent_id', $question->id)->where('parent_type', 'quest')->get();
+        $comment = DB::table('comments')->where('parent_id', $question->id)->get();
+        foreach ($comment as $c) {
+            $c->timeLapse = $this->timeAgo($c->updated_at);
+        }
         $answer = DB::table('answers')->where('quest_id', $question->id)->get();
+        foreach ($answer as $a) {
+            $a->timeLapse = $this->timeAgo($a->updated_at);
+        }
         // $answer->timeLapse = $this->timeAgo($answer->updated_at);
         return view('larahub.detailquest', [
             'question' => $question,
